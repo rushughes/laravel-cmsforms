@@ -8,4 +8,7 @@
   <input type="submit" name="submit">
 </form>
 
-@section('content')
+@endsection
+
+@section('footer')
+@endsection
