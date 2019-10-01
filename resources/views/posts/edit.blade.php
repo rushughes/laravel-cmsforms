@@ -7,7 +7,7 @@
 {!! Form::open(['action'=>['PostsController@update', $post->id], 'method'=>'patch']) !!}
   <div class="form-group">
     {!! Form::label('Title') !!}
-    {!! Form::text('title', null, ['class'=>'form-control']) !!}
+    {!! Form::text('title', $post->title, ['class'=>'form-control']) !!}
   </div>
   {!! Form::submit('Update Post', ['class'=>'btn btn-primary']) !!}
 {!! Form::close() !!}
