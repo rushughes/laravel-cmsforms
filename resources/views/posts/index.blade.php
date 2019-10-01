@@ -13,6 +13,7 @@
     </li>
   @endforeach
 </ul>
+<a href={{route('posts.create', $post->id)}}>new</a>
 @endsection
 
 @section('footer')
