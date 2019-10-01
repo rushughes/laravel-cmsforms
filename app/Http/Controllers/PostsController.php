@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest as CreatePostRequest;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -17,10 +18,8 @@ class PostsController extends Controller
     return view('posts.create');
   }
 
-  public function store (Request $request) {
-    $this->validate($request, [
-      'title' => 'required|max:5'
-    ]);
+  public function store (CreatePostRequest $request) {
+
     $post = new Post;
     $post->user_id = 1;
     $post->title = $request->title;
