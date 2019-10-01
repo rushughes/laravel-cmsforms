@@ -2,11 +2,12 @@
 
 @section('content')
 
-<form method="post" action="/posts">
-  @csrf
-  <input type="text" name="title" placeholder="Enter title">
-  <input type="submit" name="submit">
-</form>
+<h1>Create Post</h1>
+
+{!! Form::open(['route'=>'posts.store', 'method'=>'post']) !!}
+{!! Form::text('title') !!}
+{!! Form::submit('submit') !!}
+{!! Form::close() !!}
 
 @endsection
 
