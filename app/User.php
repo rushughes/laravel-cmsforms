@@ -37,7 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts() {
+    public function posts () {
       return $this->hasMany('App\Post');
     }
+
+    public function getNameAttribute($value) {
+      return ucfirst($value);
+    }
+
+    public function setNameAttribute($value) {
+      $this->attributes['name'] = strtolower($value);
+    }
+
 }

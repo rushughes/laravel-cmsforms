@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Carbon\Carbon;
 
 /*
@@ -36,4 +37,16 @@ Route::group(['middleware' => 'web'], function () {
     echo '<br />';
     echo Carbon::now()->yesterday()->diffForHumans();
   });
+
+  Route::get('/getname/{id}', function ($id) {
+      $user = User::findOrFail($id);
+      echo $user->name;
+  });
+
+  Route::get('/setname/{id}', function ($id) {
+      $user = User::findOrFail($id);
+      $user->name = "BILL";
+      $user->save();
+  });
+
 });
