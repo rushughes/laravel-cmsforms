@@ -9,11 +9,15 @@
     {!! Form::label('Title') !!}
     {!! Form::text('title', $post->title, ['class'=>'form-control']) !!}
   </div>
-  {!! Form::submit('Update Post', ['class'=>'btn btn-primary']) !!}
+  <div class="form-group">
+    {!! Form::submit('Update Post', ['class'=>'btn btn-primary']) !!}
+  </div>
 {!! Form::close() !!}
 
 {!! Form::open(['action'=>['PostsController@destroy', $post->id], 'method'=>'delete']) !!}
-  {!! Form::submit('Delete Post', ['class'=>'btn btn-primary']) !!}
+  <div class="form-group">
+    {!! Form::submit('Delete Post', ['class'=>'btn btn-primary']) !!}
+  </div>
 {!! Form::close() !!}
 
 @endsection
