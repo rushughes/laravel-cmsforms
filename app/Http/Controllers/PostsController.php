@@ -24,10 +24,19 @@ class PostsController extends Controller
 
   public function store (CreatePostRequest $request) {
 
+    $input = $request->all();
+    $name = null;
+
+    if ($file = $request->file('file')) {
+      $name = $file->getClientOriginalName();
+      $file->move('uploads', $name);
+    }
+
     $post = new Post;
     $post->user_id = 1;
     $post->title = $request->title;
     $post->content = $request->title;
+    $post->path = $name;
     $post->save();
 
     return redirect('/posts');

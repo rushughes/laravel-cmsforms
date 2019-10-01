@@ -4,7 +4,11 @@
 
 <h1>Create Post</h1>
 
-{!! Form::open(['action'=>'PostsController@store', 'method'=>'post']) !!}
+{!! Form::open(['action'=>'PostsController@store', 'method'=>'post', 'files'=>true]) !!}
+<div class="form-group">
+  {!! Form::label('File') !!}
+  {!! Form::file('file', null, ['class'=>'form-control']) !!}
+</div>
   <div class="form-group">
     {!! Form::label('Title') !!}
     {!! Form::text('title', null, ['class'=>'form-control']) !!}
